@@ -9,7 +9,19 @@ namespace jcisarano.CharacterStateMachine
     {
 
         public int _currentState = CharacterState.PRE_INIT;
-        int CurrentState { get { return _currentState; } set { _currentState = value; } }
+        int CurrentState
+        {
+            get { return _currentState; }
+            set
+            {
+                if (_debug)
+                {
+                    _stateHistory.Add(CharacterState.StateValToName(value));
+                }
+
+                _currentState = value;
+            }
+        }
         Dictionary<int, StateDelegate> _delegates = new Dictionary<int, StateDelegate>();
 
         public delegate void StateDelegate();
@@ -32,11 +44,6 @@ namespace jcisarano.CharacterStateMachine
 
         public void SetState(int state)
         {
-            if (_debug)
-            {
-                _stateHistory.Add(CharacterState.StateValToName(state));
-            }
-
             CurrentState = state;
         }
 
@@ -87,9 +94,11 @@ namespace jcisarano.CharacterStateMachine
 
         public static string StateValToName(int state)
         {
-            System.Reflection.FieldInfo[] props = typeof(CharacterState).GetFields(System.Reflection.BindingFlags.Public);
+            System.Reflection.FieldInfo[] props = typeof(CharacterState).GetFields();
+            //System.Reflection.FieldInfo[] props = typeof(CharacterState).GetFields(System.Reflection.BindingFlags.Public);
             System.Reflection.FieldInfo wantedProp = props.FirstOrDefault(prop => (int)prop.GetValue(null) == state);
             return wantedProp.Name;
+            //return state.ToString();
         }
     }
 }
