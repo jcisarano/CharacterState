@@ -95,10 +95,8 @@ namespace jcisarano.CharacterStateMachine
         public static string StateValToName(int state)
         {
             System.Reflection.FieldInfo[] props = typeof(CharacterState).GetFields();
-            //System.Reflection.FieldInfo[] props = typeof(CharacterState).GetFields(System.Reflection.BindingFlags.Public);
             System.Reflection.FieldInfo wantedProp = props.FirstOrDefault(prop => (int)prop.GetValue(null) == state);
             return wantedProp.Name;
-            //return state.ToString();
         }
     }
 }
