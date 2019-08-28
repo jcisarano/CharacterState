@@ -259,11 +259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b731385e2df815745acaebc9cc22cb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationSpeed: 1
-  _turretHead: {fileID: 0}
+  _rotationSpeed: 10
+  _turretHead: {fileID: 1687973836}
   _willFireAngle: 20
   _onlyFireWhenNearTarget: 1
-  _laserStart: {fileID: 0}
+  _laserStart: {fileID: 2138045654}
   _laserRange: 10
 --- !u!4 &599585944
 Transform:
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 659455798}
   - component: {fileID: 659455797}
   m_Layer: 0
-  m_Name: support
+  m_Name: Support
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 935746738}
   - component: {fileID: 935746737}
   m_Layer: 0
-  m_Name: barrel
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,7 +657,7 @@ GameObject:
   - component: {fileID: 1687973839}
   - component: {fileID: 1687973838}
   m_Layer: 0
-  m_Name: turret
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -675,6 +675,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.7}
   m_Children:
   - {fileID: 935746736}
+  - {fileID: 2138045655}
   m_Father: {fileID: 599585944}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 60, z: 0}
@@ -751,7 +752,7 @@ GameObject:
   - component: {fileID: 1718361297}
   - component: {fileID: 1718361296}
   m_Layer: 0
-  m_Name: base
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -831,3 +832,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718361294}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2138045654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2138045655}
+  m_Layer: 0
+  m_Name: WeaponStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2138045655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138045654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.102}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1687973837}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
