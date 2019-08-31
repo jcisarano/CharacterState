@@ -89,15 +89,23 @@ public class Shooter : MonoBehaviour
 
     protected virtual Quaternion RotateTowardsTarget(GameObject target)
     {
-        Quaternion targetRotation = GetRotationToTarget(_turretHead.transform.position, target.transform.position);
+        //Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - _turretHead.transform.position, Vector3.up);
+        //targetRotation = Quaternion.Inverse(_turretHead.transform.rotation) * targetRotation;
+
+        Quaternion targetRotation = GetRotationToTarget(_turretHead.transform.position, target.transform.position, transform.up);
         _turretHead.transform.rotation = Quaternion.Slerp(_turretHead.transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
+
+        //Vector3 euler = _turretHead.transform.eulerAngles;
+        //euler.x = Mathf.Clamp(euler.x, -89.0f, 1.0f);
+        //_turretHead.transform.eulerAngles = euler;
 
         return targetRotation;
     }
 
-    protected virtual Quaternion GetRotationToTarget(Vector3 myPos, Vector3 targetPos)
+    protected virtual Quaternion GetRotationToTarget(Vector3 myPos, Vector3 targetPos, Vector3 up)
     {
-        return Quaternion.LookRotation(GetDirectionToTarget(myPos, targetPos));
+        Vector3 direction = GetDirectionToTarget(myPos, targetPos);
+        return Quaternion.LookRotation(direction, up);
     }
 
     protected virtual Vector3 GetDirectionToTarget(Vector3 myPos, Vector3 targetPos)
