@@ -1,4 +1,5 @@
 ﻿using jcisarano.CharacterStateMachine;
+using jcisarano.laser.standard;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class Shooter : MonoBehaviour
     public float _laserRange = 10.0f;
     protected LineRenderer _laserLineRenderer;
 
-    //public WeaponBase _weapon;
+    public WeaponBase _weapon;
 
     CharacterStateMachine _stateMachine;
 
@@ -141,9 +142,9 @@ public class Shooter : MonoBehaviour
 
     void SetFireState(bool shouldFire)
     {
-        //if (_weapon != null)
-        //{
-        //    _weapon.SetFireStatus(shouldFire);
-        //}
+        if (_weapon != null)
+        {
+            _weapon.SetFireStatus(shouldFire);
+        }
     }
 }

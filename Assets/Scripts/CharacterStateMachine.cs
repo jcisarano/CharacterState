@@ -54,6 +54,7 @@ namespace jcisarano.CharacterStateMachine
                 case CharacterState.PRE_INIT:
                     CurrentState = CharacterState.SEARCHING_FOR_TARGET;
                     break;
+
                 case CharacterState.SEARCHING_FOR_TARGET:
                     CurrentState = CharacterState.INIT_ATTACK;
                     break;
@@ -66,6 +67,7 @@ namespace jcisarano.CharacterStateMachine
                 case CharacterState.ATTACK_COMPLETE:
                     CurrentState = CharacterState.SEARCHING_FOR_TARGET;
                     break;
+
                 case CharacterState.INIT_MOVE:
                     CurrentState = CharacterState.MOVE_TO;
                     break;
