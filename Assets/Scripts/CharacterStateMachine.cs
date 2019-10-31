@@ -7,14 +7,13 @@ namespace jcisarano.CharacterStateMachine
 {
     public class CharacterStateMachine : MonoBehaviour
     {
-
         public int _currentState = CharacterState.PRE_INIT;
         int CurrentState
         {
             get { return _currentState; }
             set
             {
-                if (_debug)
+                if (Debug)
                 {
                     _stateHistory.Add(CharacterState.StateValToName(value));
                 }
@@ -26,7 +25,7 @@ namespace jcisarano.CharacterStateMachine
 
         public delegate void StateDelegate();
 
-        public bool _debug = true;
+        public bool Debug { get; set; }
         public List<string> _stateHistory = new List<string>();
 
         public void SetDelegateForState(int state, StateDelegate @delegate)

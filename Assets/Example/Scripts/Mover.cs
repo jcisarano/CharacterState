@@ -28,6 +28,7 @@ public class Mover : MonoBehaviour
     protected virtual void InitStateMachine()
     {
         _stateMachine = gameObject.AddComponent<CharacterStateMachine>();
+        _stateMachine.Debug = true;
         _stateMachine.SetDelegateForState(CharacterState.PRE_INIT, Init);
         _stateMachine.SetDelegateForState(CharacterState.INIT_MOVE, InitMove);
         _stateMachine.SetDelegateForState(CharacterState.MOVE_TO, MoveTo);

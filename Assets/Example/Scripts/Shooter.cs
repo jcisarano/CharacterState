@@ -32,6 +32,7 @@ public class Shooter : MonoBehaviour
     protected virtual void InitStateMachine()
     {
         _stateMachine = gameObject.AddComponent<CharacterStateMachine>();
+        _stateMachine.Debug = true;
         _stateMachine.SetDelegateForState(CharacterState.PRE_INIT, Init);
         _stateMachine.SetDelegateForState(CharacterState.SEARCHING_FOR_TARGET, FindNewTarget);
         _stateMachine.SetDelegateForState(CharacterState.INIT_ATTACK, InitAttack);
