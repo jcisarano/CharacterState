@@ -34,7 +34,14 @@ As you can see, this sets the `Init()` function to be called during `CharacterSt
     }
 ```
 
-The next thing to note is that
+There are a couple of ways to determine which state to set next. If your state machine uses a standard state organization, `CharacterState.SetNextState()` can handle the transition as above. Or you can set a specific state: 
+
+```
+    _stateMachine.SetState(CharacterState.SEARCHING_FOR_TARGET);
+```
+
+## Other Features
+`CharacterStateMachine` includes a Debug setting that displays the object's complete state history on the `CharacterStateMachine` component in the inspector.
 
 ## Example
 An example scene is included that shows the state machine in use on two different objects.
