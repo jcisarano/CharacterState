@@ -21,7 +21,7 @@ namespace jcisarano.CharacterStateMachine
                 _currentState = value;
             }
         }
-        Dictionary<int, StateDelegate> _delegates = new Dictionary<int, StateDelegate>();
+        Dictionary<int, List<StateDelegate>> _delegates = new Dictionary<int, List<StateDelegate>>();
 
         public delegate void StateDelegate();
 
@@ -30,14 +30,22 @@ namespace jcisarano.CharacterStateMachine
 
         public void SetDelegateForState(int state, StateDelegate @delegate)
         {
-            _delegates[state] = @delegate;
+            if(!_delegates.ContainsKey(state))
+            {
+                _delegates[state] = new List<StateDelegate>();
+            }
+
+            _delegates[state].Add( @delegate );
         }
 
         void Update()
         {
             if (_delegates.ContainsKey(CurrentState))
             {
-                _delegates[CurrentState]();
+                foreach(StateDelegate @delegate in _delegates[CurrentState])
+                {
+                    @delegate?.Invoke();
+                }
             }
         }
 
