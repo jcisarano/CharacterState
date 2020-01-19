@@ -54,6 +54,14 @@ namespace jcisarano.CharacterStateMachine
             CurrentState = state;
         }
 
+        public void UnsetStateDelegate(int state, StateDelegate @delegate)
+        {
+            if(_delegates.ContainsKey(state))
+            {
+                _delegates[state].Remove(@delegate);
+            }
+        }
+
         public virtual void SetNextState()
         {
             switch (CurrentState)
